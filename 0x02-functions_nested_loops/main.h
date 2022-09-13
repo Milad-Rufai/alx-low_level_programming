@@ -1,4 +1,4 @@
-int _putchar(char c);
+r(char c);
 
 void print_alphabet(void);
 
