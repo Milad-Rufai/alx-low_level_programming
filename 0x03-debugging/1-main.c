@@ -10,7 +10,6 @@
  */
 
 
-
 int main(void)
 
 {
@@ -35,7 +34,7 @@ int main(void)
 				 *
 				 * *	}
 				 *
-				 * */
+				 */
 
 					printf("Infinite loop avoided! \\o/\n");
 
