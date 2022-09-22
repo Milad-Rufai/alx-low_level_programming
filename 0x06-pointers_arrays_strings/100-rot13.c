@@ -12,7 +12,7 @@ int i, ii;
 char input[] =  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (ii = 0; ii < 54; ii++)
 		{
@@ -24,5 +24,5 @@ for (i = 0; s[i] != '\0'; i++)
 			}
 		}
 	}
-	return (s);
+return (s);
 }
