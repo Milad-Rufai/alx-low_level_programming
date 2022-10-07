@@ -23,8 +23,7 @@ void _print(char *str, int l)
 			_putchar(str[i]);
 		i++;
 	}
-
-	_putchar('\n');
+_putchar('\n');
 	free(str);
 }
 
@@ -99,7 +98,6 @@ void init(char *str, int l)
 		str[i] = '0';
 	str[i] = '\0';
 }
-
 /**
  * main - multiply two numbers
  * @argc: number of arguments
