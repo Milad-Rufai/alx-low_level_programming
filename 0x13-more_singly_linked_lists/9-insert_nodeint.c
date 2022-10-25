@@ -1,46 +1,56 @@
 #include "lists.h"
 /**
- * insert_nodeint_at_index - This function inserts a
- * new node at given position
- * @head: The head node
- * @idx: The index of the list where new node is to be added
- * @n: The integer data of the new node
- * Return: The address of the new inserted node or NULL if failed
- */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+ * insert_nodeint_at_index - inserts a node at a given index
+ * @idx: index to insert the node
+ * @num: value of the new node
+ * @head: pointer to the start of the list
+ * Return: pointer to the new node, NULL if failed
+ **/
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int num)
 {
-	listint_t *node, *temp = *head;
-	size_t i = 0;
+	unsigned int count;
+	listint_t *new_node, *temp;
 
-	node = malloc(sizeof(listint_t));
-	if (!node)
+	if (head == NULL)
 		return (NULL);
-
-	node->n = n;
-	node->next = NULL;
-
-	if (!*head && !idx)
+	if (idx == 0)
 	{
-		*head = node;
-		return (node);
+		new_node = add_nodeint(head, num);
+		return (new_node);
 	}
-
-	else if (!*head && idx)
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
 		return (NULL);
-
-	else if (!idx)
+	new_node->n = num;
+	temp = *head;
+	count = 0;
+	while (count < (idx - 1))
 	{
-		node->next = temp;
-		*head = node;
-		return (node);
-	}
-	while (i < (idx - 1))
-	{
+		count++;
 		temp = temp->next;
-		i++;
+		if (temp == NULL)
+			return (NULL);
 	}
-	node->next = temp->next;
-	temp->next = node;
+	new_node->next = temp->next;
+	temp->next = new_node;
+	return (new_node);
+}
+/**
+ *  * add_nodeint - Adds a new node at the beginning of the list
+ *   * @head: pointer to the first element of the list
+ *    * @n: number to fill the list.
+ *     * Return: address of the new node
+ *      **/
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new;
 
-	return (node);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = *head;
+
+	*head = new;
+	return (new);
 }
